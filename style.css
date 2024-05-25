@@ -55,6 +55,7 @@ p {
     margin-top: 30px;
     transition: .3s ease;
     transition-property: background-color, color;
+    font-family: italic;
 }
 .cta:hover {
     color: white;
