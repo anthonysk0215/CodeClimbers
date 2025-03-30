@@ -23,3 +23,30 @@ menu_item.forEach(item=>{
         mobile.classList.toggle('active');
     })
 })
+
+// Gallery Slider
+const track = document.querySelector('.slide-track');
+const slides = document.querySelectorAll('.slide');
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+let currentIndex = 0;
+
+function updateSlider() {
+    track.style.transform = `translateX(-${currentIndex * 100}%)`;
+}
+
+prevButton.addEventListener('click', () => {
+    currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+    updateSlider();
+});
+
+nextButton.addEventListener('click', () => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+});
+
+// Auto-slide every 5 seconds
+setInterval(() => {
+    currentIndex = (currentIndex + 1) % slides.length;
+    updateSlider();
+}, 5000);
